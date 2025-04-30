@@ -1,0 +1,8 @@
+name = "glitch-effect"
+compatibility_date = "2025-04-30"
+
+[build]
+command = "npx next-on-pages --experimental-minify && npx wrangler deploy"
+
+[site]
+bucket = ".vercel/output/static"

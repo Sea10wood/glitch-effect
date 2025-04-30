@@ -36,6 +36,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.2(@types/react@19.1.2)
+      next-on-pages:
+        specifier: ^0.1.6
+        version: 0.1.6
       tailwindcss:
         specifier: ^4
         version: 4.1.4
@@ -461,6 +464,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  next-on-pages@0.1.6:
+    resolution: {integrity: sha512-ggOHkbeyMxI6WQ21CWOBRI2w0UjTPZYpSOSsOQ/HpESnMJaMjatd6Y0Uy50fHvZ3hHn2ijPzKwHmQ+fAmCrJ7Q==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    hasBin: true
+
   next@15.3.1:
     resolution: {integrity: sha512-8+dDV0xNLOgHlyBxP1GwHGVaNXsmp+2NhZEYrXr24GWLHtt27YrBPbPuHvzlhi7kZNYjeJNR93IF5zfFu5UL0g==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
@@ -866,6 +874,8 @@ snapshots:
   motion-utils@12.8.3: {}
 
   nanoid@3.3.11: {}
+
+  next-on-pages@0.1.6: {}
 
   next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:

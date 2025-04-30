@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "deploy": "wrangler deploy",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
@@ -20,6 +21,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "next-on-pages": "^0.1.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
