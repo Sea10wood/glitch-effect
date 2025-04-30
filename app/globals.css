@@ -3,13 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --font-mono: monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +17,287 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+#container {
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: 5em;
+  letter-spacing: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  color: #fff;
+}
+
+.glitch-text {
+  text-align: center;
+  color: #fff;
+  font-size: 5em;
+  letter-spacing: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+
+.glitch-text:nth-child(1) {
+  animation: glitch1 2.5s infinite;
+}
+
+.glitch-text:nth-child(2) {
+  color: #67f3da;
+  position: absolute;
+  animation: glitch2 2.5s infinite;
+}
+
+.glitch-text:nth-child(3) {
+  color: #f16f6f;
+  position: absolute;
+  animation: glitch3 2.5s infinite;
+}
+
+/* グリッジキーフレーム省略せず追加 */
+@keyframes glitch1 {
+  0% { transform: none; opacity: 1; }
+  7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
+  10% { transform: none; opacity: 1; }
+  27% { transform: none; opacity: 1; }
+  30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
+  35% { transform: none; opacity: 1; }
+  52% { transform: none; opacity: 1; }
+  55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
+  72% { transform: none; opacity: 1; }
+  75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
+  80% { transform: none; opacity: 1; }
+  100% { transform: none; opacity: 1; }
+}
+
+@keyframes glitch2 {
+  0% { transform: none; opacity: 0.25; }
+  7% { transform: translate(-2px, -3px); opacity: 0.5; }
+  10% { transform: none; opacity: 0.25; }
+  30% { transform: translate(-5px, -2px); opacity: 0.5; }
+  55% { transform: translate(-5px, -1px); opacity: 0.5; }
+  75% { transform: translate(-2px, -6px); opacity: 0.5; }
+  100% { transform: none; opacity: 0.25; }
+}
+
+@keyframes glitch3 {
+  0% { transform: none; opacity: 0.25; }
+  7% { transform: translate(2px, 3px); opacity: 0.5; }
+  10% { transform: none; opacity: 0.25; }
+  30% { transform: translate(5px, 2px); opacity: 0.5; }
+  55% { transform: translate(5px, 1px); opacity: 0.5; }
+  75% { transform: translate(2px, 6px); opacity: 0.5; }
+  100% { transform: none; opacity: 0.25; }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+.glitch-a {
+  animation: glitch 0.4s infinite;
+  text-shadow: 1px 0 red, -1px 0 blue;
+}
+
+.glitch-b {
+  animation: glitch 0.6s infinite;
+  text-shadow: 2px 0 green, -2px 0 purple;
+}
+
+.glitch-c {
+  animation: glitch 0.3s infinite;
+  text-shadow: 1px 1px cyan, -1px -1px magenta;
+}
+
+.falling-word {
+  position: absolute;
+  animation: fall 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(110vh);
+  }
+}
+@keyframes moveDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes moveRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+/* .falling-word {
+  position: absolute;
+  animation: moveDown 5s linear infinite;
+} */
+
+/* テキストの揺れエフェクト */
+@keyframes textFlicker {
+  0% {
+    text-shadow: 2px 0 4px #ea36af, -2px 0 4px #75fa69;
+    transform: translate(0, 0);
+  }
+  25% {
+    text-shadow: 3px 1px 6px #ea36af, -3px -1px 6px #75fa69;
+    transform: translate(1px, -1px);
+  }
+  50% {
+    text-shadow: 4px -1px 8px #ea36af, -4px 1px 8px #75fa69;
+    transform: translate(-1px, 1px);
+  }
+  75% {
+    text-shadow: 3px 2px 6px #ea36af, -3px -2px 6px #75fa69;
+    transform: translate(2px, -2px);
+  }
+  100% {
+    text-shadow: 2px 0 4px #ea36af, -2px 0 4px #75fa69;
+    transform: translate(0, 0);
+  }
+}
+
+.flicker-text {
+  animation: textFlicker 0.3s infinite alternate; /* アニメーション速度を速く */
+  color: #eee;
+  font-family: 'Nintendoid1', sans-serif;
+  letter-spacing: 0.125em;
+  text-shadow: 2px 0 4px #ea36af, -2px 0 4px #75fa69;
+}
+
+/* 全体のエフェクト用コンテナ */
+.effect-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* クリックイベントを無効化 */
+  z-index: 50; /* 必要に応じて調整 */
+}
+
+/* 各色のエフェクト */
+.effect-layer {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  animation: glitchEffect 1s infinite;
+}
+
+.effect-layer.red {
+  background-color: rgba(255, 0, 0, 0.1);
+  transform: translate(4px, 4px);
+}
+
+.effect-layer.green {
+  background-color: rgba(0, 255, 0, 0.1);
+  transform: translate(-4px, -4px);
+}
+
+.effect-layer.blue {
+  background-color: rgba(0, 0, 255, 0.1);
+  transform: translate(0, 0);
+}
+
+/* アニメーション */
+@keyframes glitchEffect {
+  0% {
+    transform: translate(4px, 4px);
+  }
+  15% {
+    transform: translate(6px, 6px);
+  }
+  30% {
+    transform: translate(4px, 4px);
+  }
+  45% {
+    transform: translate(2px, 2px);
+  }
+  60% {
+    transform: translate(4px, 4px);
+  }
+  75% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(4px, 4px);
+  }
+}
+
+/* 砂嵐エフェクト */
+@keyframes staticNoise {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.static-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50; /* 必要に応じて調整 */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="50" fill="white" opacity="0.1"/><circle cx="25" cy="25" r="25" fill="white" opacity="0.05"/><circle cx="75" cy="75" r="25" fill="white" opacity="0.05"/></svg>');
+  background-size: 500% 500%;
+  animation: staticNoise 0.2s steps(10) infinite;
+  opacity: 0.2; /* 透明度を調整 */
 }
